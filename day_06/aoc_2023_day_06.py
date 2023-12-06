@@ -90,27 +90,7 @@ def run_direct():
     justfile interface. Useful for quick debugging and checking your work.
     """
     print(parse_input(SAMPLE_PATH))
-    input_data = parse_input(INPUT_PATH)
-    for line in input_data:
-        if line.startswith('Time:'):
-            times = re.findall(r'\d+', line)
-            times = int(reduce(lambda x, y: x+y, times))
-            print(times)
-        elif line.startswith('Distance:'):
-            distances = re.findall(r'\d+', line)
-            distances = int(reduce(lambda x, y: x+y, distances))
-            print(distances)
-        else:
-            print(line)
 
-    beat_the_best_time = 0
-    for button in range(times):
-        remaining_time = times - button
-        travel = button * remaining_time
-        if travel > distances:
-            beat_the_best_time += 1
-
-    print(beat_the_best_time)
 
 # ---=== PROBLEM CODE ABOVE ===---
 
