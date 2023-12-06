@@ -27,6 +27,16 @@ logger.addHandler(log_handler)
 
 # ---=== PROBLEM CODE BELOW ===---
 
+# This is possible faster, since it only runs to half the time length
+def handle_race(time, dist):
+    failed = 0
+    for i in range(0, time // 2 + 1):
+        if i * (time - i) <= dist:
+            failed += 1
+        else:
+            break
+
+    return (time + 1) - (failed * 2)
 
 def parse_input(data_path: Path) -> list:
     """
