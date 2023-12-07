@@ -85,13 +85,13 @@ def part_2(input_data: list):
             print(line)
 
     beat_the_best_time = 0
-    for button in range(times):
+    for button in range(times // 2):
         remaining_time = times - button
         travel = button * remaining_time
         if travel > distances:
             beat_the_best_time += 1
 
-    return beat_the_best_time
+    return beat_the_best_time + beat_the_best_time + 1
 
 
 def run_direct():
@@ -101,9 +101,7 @@ def run_direct():
     """
     print(parse_input(SAMPLE_PATH))
 
-
 # ---=== PROBLEM CODE ABOVE ===---
-
 
 def problem_dispatch(mode: str, part: int, log_level: str = None):
     if log_level is not None:
