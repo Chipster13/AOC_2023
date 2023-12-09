@@ -78,9 +78,7 @@ def part_1(input_data: list):
     one_bucket = []
 
     for val in input_data:
-        c1 = ''
-        for c in val[:5]:
-            c1 += conversion_p1[c]
+        c1 = ''.join(conversion_p1[i] for i in val[:5])
         cnt = Counter(c1)
         if Counter(cnt.values())[5] == 1:
            five_bucket.append((cnt, int(val[5:])))
@@ -222,6 +220,7 @@ def run_direct():
     justfile interface. Useful for quick debugging and checking your work.
     """
     print(parse_input(SAMPLE_PATH))
+
 
 # ---=== PROBLEM CODE ABOVE ===---
 
